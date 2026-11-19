@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="masthead">
+  <p class="kicker">Token launch radar · <span id="asof">snapshot</span> · model <span id="model">-</span></p>
+  <h1>What would the token be worth<br><em>if the record stayed as it is?</em></h1>
+  <p class="lede">Each protocol that records no token is priced like a private company, by comparables: the snapshot's own live tokens give every category a market-cap-to-TVL multiple, tilted by seven-day momentum and by how long the protocol has run without a token.</p>
+  <div class="formula glass" id="formula"></div>
+</header>
+
+<section class="stats" id="stats" aria-label="Board summary"></section>
+
+<nav class="tabs" role="tablist" aria-label="Views">
+  <button role="tab" data-tab="board" aria-selected="true">Pre-token board <b id="n-board"></b></button>
+  <button role="tab" data-tab="comps" aria-selected="false">Trading comps <b id="n-comps"></b></button>
+  <button role="tab" data-tab="aside" aria-selected="false">Set aside <b id="n-aside"></b></button>
+</nav>
+
+<section class="toolbar glass" aria-label="Filters">
+  <label class="search"><span>Search</span><input id="q" type="search" placeholder="Protocol, chain or category" autocomplete="off"></label>
+  <label><span>Category</span><select id="cat"></select></label>
+  <label class="check"><input id="wl" type="checkbox"> Watchlist only</label>
+  <p class="count" id="count" aria-live="polite"></p>
+</section>
+<p class="hint">Click any row for its valuation math, its live comparables and a step-by-step farm plan with costs and times. Click a column header to sort. Gold multiples come from the protocol's own category; grey ones fall back to the global median.</p>
+
+<main class="glass sheet">
+  <table id="grid">
+    <thead id="head"></thead>
+    <tbody id="body"></tbody>
+  </table>
+  <p class="empty" id="empty" hidden>No protocol matches these filters.</p>
+</main>
+
+<aside class="drawer glass" id="drawer" aria-label="Protocol detail" hidden></aside>
+
+<footer class="foot">
+  <p id="source"></p>
+  <p>Implied values are this radar's own claim from the snapshot's figures, never make.fun's, and never a forecast that a token will be issued. "Records no token" means DefiLlama's record carries none; it is not proof that none exists.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
